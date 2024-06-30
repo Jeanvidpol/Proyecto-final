@@ -2,6 +2,7 @@ package Programas;
 import java.util.Scanner;
 
 public class ProgramaInicial {
+    //Definición de la constante
     private static final Scanner entrada = new Scanner(System.in);
 
     public static void main(String[] args) {
@@ -15,7 +16,8 @@ public class ProgramaInicial {
         int opcion;
 
         registrarTareas(nombresTareas, tareasCumplidas, empleados, idEmpresarial, horasRealizacion);
-
+        
+        //Ejecución del bucle do-while
         do {
             menu();
             opcion = entrada.nextInt();
@@ -40,7 +42,7 @@ public class ProgramaInicial {
 
         } while(opcion >= 1 && opcion <= 4);
     }
-
+    //Método para ingresar el número de tareas
     public static int ingresarNumeroTareas() {
         System.out.print("Ingrese el número de tareas: ");
         int numeroTareas = entrada.nextInt();
@@ -48,6 +50,7 @@ public class ProgramaInicial {
         return numeroTareas;
     }
 
+    //Método para registrar las tareas
     public static void registrarTareas(String[] nombresTareas, boolean[] tareasCumplidas, String[] empleados, int[] idEmpresarial, float[] horasRealizacion) {
         for(int i=0; i < nombresTareas.length; i++) {
             System.out.println("\nRegistro tarea " + (i+1) + ":");
@@ -62,7 +65,8 @@ public class ProgramaInicial {
             //entrada.next();
         }
     }
-
+    
+    //Método para el menú
     public static void menu() {
         System.out.println("\n=== Control de Cumplimiento de Tareas ===");
         System.out.println("1. Tareas Completadas");
@@ -72,6 +76,7 @@ public class ProgramaInicial {
         System.out.print("Ingrese una opción: ");
     }
 
+    //Método para enseñar las tareas que han sido completadas
     public static void listarTareasCompletadas(String[] nombresTareas, boolean[] tareasCumplidas, String[] empleados, int[] idEmpresarial, float[] horasRealizacion) {
         System.out.println("Tareas Completadas:\n");
         for(int i = 0; i < nombresTareas.length; i++) {
@@ -80,7 +85,8 @@ public class ProgramaInicial {
             }
         }
     }
-
+    
+    //Método para enseñar las tareas que están pendientes
     public static void listarTareasPendientes(String[] nombresTareas, boolean[] tareasCumplidas, String[] empleados, int[] idEmpresarial, float[] horasRealizacion) {
         System.out.println("Tareas Pendientes:\n");
         for(int i = 0; i < nombresTareas.length; i++) {
@@ -90,6 +96,7 @@ public class ProgramaInicial {
         }
     }
 
+    //Método para realizar las tareas
     public static void realizarTarea(String[] nombresTareas, boolean[] tareasCumplidas, String[] empleados, int[] idEmpresarial, float[] horasRealizacion) {
         listarTareasPendientes(nombresTareas, tareasCumplidas, empleados, idEmpresarial, horasRealizacion);
         int id;
